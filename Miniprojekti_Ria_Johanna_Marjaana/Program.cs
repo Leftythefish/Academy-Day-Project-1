@@ -18,90 +18,30 @@ namespace Quizz
             RandomSortQuestions();
             Start(); // kysyy vastaajan nimen
             AskQuestions(); // kysyy kysymykset
-            CalculateResults(); // laskee tulokset + antaa pisteet + testi
-        }
-
-        private static void CalculateResults()
-        {
-            points = 0;
-            foreach (var i in SortedQ)
-            {
-                if (i.PlayerVastaus == i.Vastaus)
-                {
-                    points++;
-                }
-            }
-            GiveResults();
+            GiveResults(); // antaa pisteet ja kommentin
         }
 
         private static void GiveResults()
         {
-            if (points >= 10)
+            if (points > 8)
             {
-                string title = @"    .-""""""-.
-  .'          '.
- /   O      O   \
-:                :
-|                |   
-: ',          ,' :
- \  '-......-'  /
-  '.          .'
-    '-......-'";
-                Console.WriteLine($"Hurray, oletko {playername} tehnyt muutakin kuin katsonut leffoja?");
-                Console.WriteLine(title);
+                Console.WriteLine($"Mahtavaa, {playername}!");
                 Console.WriteLine();
-                Console.WriteLine($"Tuloksesi on huikeat {points}/10");
+                Console.WriteLine($"Tuloksesi on: {points}/10");
             }
-            else if (points >= 7 && points <= 9)
+            else if (points >= 3 && points <= 8)
             {
-                string title = @"    .-""""""-.
-   .'          '.
-  /   O    -=-   \
- :                :
- |                |  
- : ',          ,' :
-  \  '-......-'  /
-   '.          .'
-     '-......-'";
-                Console.WriteLine($"Ihan ok meni, {playername} eksyy välillä leffateatteriin, mutta ei tarpeeksi usein!");
-                Console.WriteLine(title);
+                Console.WriteLine($"Hyvin meni {playername}!");
                 Console.WriteLine();
                 Console.WriteLine($"Tuloksesi on: {points}/10");
 
             }
-            else if (points >= 4 && points <= 6)
+            else if (points < 3)
             {
-                string title = @"     .-""""""-.
-   .'          '.
-  /   O      O   \
- :           `    :
- |                |   
- :    .------.    :
-  \  '        '  /
-   '.          .'
-     '-......-' ";
-                Console.WriteLine($"Joulupukki tuo sulle {playername} Finnkinon lahjakortteja lahjaksi.");
-                Console.WriteLine(title);
+                Console.WriteLine($"Paremminkin olis voinut mennä, {playername}.");
                 Console.WriteLine();
-                Console.WriteLine($"Huonosti meni... tuloksesi on {points}/10");
+                Console.WriteLine($"Tuloksesi on: {points}/10");
             }
-            else if (points <= 3)
-            {
-                string title = @"     .-""""""-.
-   .'  \    /   '.
-  /   O      O   \
- :   ´       `    :
- | ´           `  |   
- :    .------.    :
-  \  '        '  /
-   '.          .'
-     '-......-' ";
-                Console.WriteLine($"Vaaau {playername}, kissatkin tietää enemmän leffoista!");
-                Console.WriteLine(title);
-                Console.WriteLine();
-                Console.WriteLine($"TUloksesi on melkein miinuksella: {points}/10");
-            }
-
             Console.WriteLine();
             Console.WriteLine("Paina [1] nähdäksesi kaikki vastaukset, tai sulje ohjelma painamalla mitä tahansa muuta...");
             var inp = Console.ReadKey();
@@ -126,6 +66,7 @@ namespace Quizz
 
         private static void AskQuestions()
         {
+            points = 0;
             Console.Clear();
             int counter = 1;
             foreach (var i in SortedQ)
@@ -138,21 +79,61 @@ namespace Quizz
                 Console.WriteLine("[1] KYLLÄ [2] EI ");
                 Console.WriteLine();
                 ConsoleKeyInfo input = Console.ReadKey();
-
+                Console.Clear();
                 if (input.Key == ConsoleKey.D1)
                 {
                     i.PlayerVastaus = "kyllä";
+                    if (i.PlayerVastaus == i.Vastaus)
+                    {
+                        points++;
+                        Console.WriteLine("Vastaus on OIKEIN!");
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine(i.Kysymys);
+                        Console.WriteLine(i.Selite);
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine($"Pistetilanteesi nyt: {points}/10");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vastaus on VÄÄRIN!");
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine(i.Kysymys);
+                        Console.WriteLine(i.Selite);
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine($"Pistetilanteesi nyt: {points}/10");
+                    }
                 }
                 else if (input.Key == ConsoleKey.D2)
                 {
                     i.PlayerVastaus = "ei";
+                    if (i.PlayerVastaus == i.Vastaus)
+                    {                        
+                        points++;
+                        Console.WriteLine("Vastaus on OIKEIN!");
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine(i.Kysymys);
+                        Console.WriteLine(i.Selite);
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine($"Pistetilanteesi nyt: {points}/10");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vastaus on VÄÄRIN!");
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine(i.Kysymys);
+                        Console.WriteLine(i.Selite);
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine($"Pistetilanteesi nyt: {points}/10");
+                    }
                 }
+                
                 else
                 {
                     Console.Clear();
                     Console.WriteLine("Et osunut kumpaankaan pyydettyyn nappiin. Vastauksesi on siis automaattisesti väärin.");
                     Console.ReadKey();
                 }
+                Console.ReadKey();
                 Console.Clear();
                 counter++;
             }
@@ -175,7 +156,7 @@ namespace Quizz
 
             try
             {
-                using (StreamReader sr = new StreamReader(@"C:\Users\johan\Source\Repos\Leftythefish\Miniprojekti_Quizz\questions.txt"))
+                using (StreamReader sr = new StreamReader(@"C:\Users\riaah\OneDrive\Tiedostot\ACADEMY\Viikko1\Miniprojekti_Ria_Johanna_Marjaana\questions.txt"))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
