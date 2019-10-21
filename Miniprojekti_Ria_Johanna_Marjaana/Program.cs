@@ -18,7 +18,7 @@ namespace Quizz
             RandomSortQuestions();
             Start(); // kysyy vastaajan nimen
             AskQuestions(); // kysyy kysymykset
-            CalculateResults(); // laskee tulokset + antaa pisteet
+            CalculateResults(); // laskee tulokset + antaa pisteet + testi
         }
 
         private static void CalculateResults()
