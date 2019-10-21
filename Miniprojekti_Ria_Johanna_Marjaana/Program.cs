@@ -36,7 +36,7 @@ namespace Quizz
 
         private static void GiveResults()
         {
-            if (points >= 10)
+            if (points >= 10) //kommentti
             {
                 string title = @"    .-""""""-.
   .'          '.
