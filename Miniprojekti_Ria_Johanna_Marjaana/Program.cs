@@ -18,21 +18,22 @@ namespace Quizz
             RandomSortQuestions();
             Start(); // kysyy vastaajan nimen
             AskQuestions(); // kysyy kysymykset
-            CalculateResults(); // laskee tulokset + antaa pisteet + testi
-        }
-
-        private static void CalculateResults()
-        {
-            points = 0;
-            foreach (var i in SortedQ)
-            {
-                if (i.PlayerVastaus == i.Vastaus)
-                {
-                    points++;
-                }
-            }
+                            //CalculateResults(); // laskee tulokset + antaa pisteet + testi
             GiveResults();
         }
+
+        //private static void CalculateResults()
+        //{
+        //    points = 0;
+        //    foreach (var i in SortedQ)
+        //    {
+        //        if (i.PlayerVastaus == i.Vastaus)
+        //        {
+        //            points++;
+        //        }
+        //    }
+        //    GiveResults();
+        //}
 
         private static void GiveResults()
         {
@@ -124,8 +125,43 @@ namespace Quizz
             }
         }
 
+        //private static void AskQuestions()
+        //{
+        //    Console.Clear();
+        //    int counter = 1;
+        //    foreach (var i in SortedQ)
+        //    {
+        //        Console.WriteLine($"Kysymys numero: {counter}");
+        //        Console.WriteLine("--------------------------");
+        //        Console.WriteLine(i.Kysymys);
+        //        Console.WriteLine();
+        //        Console.WriteLine("Valitse vastaus painamalla näppäintä:");
+        //        Console.WriteLine("[1] KYLLÄ [2] EI ");
+        //        Console.WriteLine();
+        //        ConsoleKeyInfo input = Console.ReadKey();
+
+        //        if (input.Key == ConsoleKey.D1)
+        //        {
+        //            i.PlayerVastaus = "kyllä";
+        //        }
+        //        else if (input.Key == ConsoleKey.D2)
+        //        {
+        //            i.PlayerVastaus = "ei";
+        //        }
+        //        else
+        //        {
+        //            Console.Clear();
+        //            Console.WriteLine("Et osunut kumpaankaan pyydettyyn nappiin. Vastauksesi on siis automaattisesti väärin.");
+        //            Console.ReadKey();
+        //        }
+        //        Console.Clear();
+        //        counter++;
+        //    }
+        //}
+
         private static void AskQuestions()
         {
+            points = 0;
             Console.Clear();
             int counter = 1;
             foreach (var i in SortedQ)
@@ -138,21 +174,61 @@ namespace Quizz
                 Console.WriteLine("[1] KYLLÄ [2] EI ");
                 Console.WriteLine();
                 ConsoleKeyInfo input = Console.ReadKey();
-
+                Console.Clear();
                 if (input.Key == ConsoleKey.D1)
                 {
                     i.PlayerVastaus = "kyllä";
+                    if (i.PlayerVastaus == i.Vastaus)
+                    {
+                        points++;
+                        Console.WriteLine("Vastaus on OIKEIN!");
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine(i.Kysymys);
+                        Console.WriteLine(i.Selite);
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine($"Pistetilanteesi nyt: {points}/10");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vastaus on VÄÄRIN!");
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine(i.Kysymys);
+                        Console.WriteLine(i.Selite);
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine($"Pistetilanteesi nyt: {points}/10");
+                    }
                 }
                 else if (input.Key == ConsoleKey.D2)
                 {
                     i.PlayerVastaus = "ei";
+                    if (i.PlayerVastaus == i.Vastaus)
+                    {
+                        points++;
+                        Console.WriteLine("Vastaus on OIKEIN!");
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine(i.Kysymys);
+                        Console.WriteLine(i.Selite);
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine($"Pistetilanteesi nyt: {points}/10");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vastaus on VÄÄRIN!");
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine(i.Kysymys);
+                        Console.WriteLine(i.Selite);
+                        Console.WriteLine("--------------------------");
+                        Console.WriteLine($"Pistetilanteesi nyt: {points}/10");
+                    }
                 }
+
                 else
                 {
                     Console.Clear();
                     Console.WriteLine("Et osunut kumpaankaan pyydettyyn nappiin. Vastauksesi on siis automaattisesti väärin.");
                     Console.ReadKey();
                 }
+                Console.ReadKey();
                 Console.Clear();
                 counter++;
             }
@@ -175,7 +251,7 @@ namespace Quizz
 
             try
             {
-                using (StreamReader sr = new StreamReader(@"C:\Users\johan\Source\Repos\Leftythefish\Miniprojekti_Quizz\questions.txt"))
+                using (StreamReader sr = new StreamReader(@"C:\Users\riaah\OneDrive\Tiedostot\ACADEMY\Viikko1\Miniprojekti_Ria_Johanna_Marjaana\questions.txt"))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
