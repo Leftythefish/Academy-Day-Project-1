@@ -18,7 +18,7 @@ namespace Quizz
             RandomSortQuestions();
             Start(); // kysyy vastaajan nimen
             AskQuestions(); // kysyy kysymykset
-            CalculateResults(); // laskee tulokset + antaa pisteet
+            CalculateResults(); // laskee tulokset + antaa pisteet + testi
         }
 
         private static void CalculateResults()
@@ -36,25 +36,72 @@ namespace Quizz
 
         private static void GiveResults()
         {
-            if (points > 8)
+            if (points >= 10) //kommentti
             {
-                Console.WriteLine($"Mahtavaa, {playername}!");
+                string title = @"    .-""""""-.
+  .'          '.
+ /   O      O   \
+:                :
+|                |   
+: ',          ,' :
+ \  '-......-'  /
+  '.          .'
+    '-......-'";
+                Console.WriteLine($"Hurray, oletko {playername} tehnyt muutakin kuin katsonut leffoja?");
+                Console.WriteLine(title);
                 Console.WriteLine();
-                Console.WriteLine($"Tuloksesi on: {points}/10");
+                Console.WriteLine($"Tuloksesi on huikeat {points}/10");
             }
-            else if (points >= 3 && points <= 8)
+            else if (points >= 7 && points <= 9)
             {
-                Console.WriteLine($"Hyvin meni {playername}!");
+                string title = @"    .-""""""-.
+   .'          '.
+  /   O    -=-   \
+ :                :
+ |                |  
+ : ',          ,' :
+  \  '-......-'  /
+   '.          .'
+     '-......-'";
+                Console.WriteLine($"Ihan ok meni, {playername} eksyy välillä leffateatteriin, mutta ei tarpeeksi usein!");
+                Console.WriteLine(title);
                 Console.WriteLine();
                 Console.WriteLine($"Tuloksesi on: {points}/10");
 
             }
-            else if (points < 3)
+            else if (points >= 4 && points <= 6)
             {
-                Console.WriteLine($"Paremminkin olis voinut mennä, {playername}.");
+                string title = @"     .-""""""-.
+   .'          '.
+  /   O      O   \
+ :           `    :
+ |                |   
+ :    .------.    :
+  \  '        '  /
+   '.          .'
+     '-......-' ";
+                Console.WriteLine($"Joulupukki tuo sulle {playername} Finnkinon lahjakortteja lahjaksi.");
+                Console.WriteLine(title);
                 Console.WriteLine();
-                Console.WriteLine($"Tuloksesi on: {points}/10");
+                Console.WriteLine($"Huonosti meni... tuloksesi on {points}/10");
             }
+            else if (points <= 3)
+            {
+                string title = @"     .-""""""-.
+   .'  \    /   '.
+  /   O      O   \
+ :   ´       `    :
+ | ´           `  |   
+ :    .------.    :
+  \  '        '  /
+   '.          .'
+     '-......-' ";
+                Console.WriteLine($"Vaaau {playername}, kissatkin tietää enemmän leffoista!");
+                Console.WriteLine(title);
+                Console.WriteLine();
+                Console.WriteLine($"Tuloksesi on melkein miinuksella: {points}/10");
+            }
+
             Console.WriteLine();
             Console.WriteLine("Paina [1] nähdäksesi kaikki vastaukset, tai sulje ohjelma painamalla mitä tahansa muuta...");
             var inp = Console.ReadKey();
@@ -128,7 +175,7 @@ namespace Quizz
 
             try
             {
-                using (StreamReader sr = new StreamReader(@"C:\Users\riaah\OneDrive\Tiedostot\Miniprojekti_Ria_Johanna_Marjaana\questions.txt"))
+                using (StreamReader sr = new StreamReader(@"C:\Users\johan\Source\Repos\Leftythefish\Miniprojekti_Quizz\questions.txt"))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
