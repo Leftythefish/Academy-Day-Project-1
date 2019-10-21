@@ -99,7 +99,7 @@ namespace Quizz
                 Console.WriteLine($"Vaaau {playername}, kissatkin tietää enemmän leffoista!");
                 Console.WriteLine(title);
                 Console.WriteLine();
-                Console.WriteLine($"TUloksesi on melkein miinuksella: {points}/10");
+                Console.WriteLine($"Tuloksesi on melkein miinuksella: {points}/10");
             }
 
             Console.WriteLine();
