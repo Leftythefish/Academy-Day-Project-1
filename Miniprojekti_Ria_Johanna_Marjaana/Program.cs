@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
+
+
 namespace Quizz
 {
     class Program
@@ -14,6 +16,7 @@ namespace Quizz
         static int points;
         static void Main(string[] args)
         {
+           
             LoadAllQuestions();
             RandomSortQuestions();
             Start(); // kysyy vastaajan nimen
@@ -115,8 +118,10 @@ namespace Quizz
         {
             Console.WriteLine("Tervetuloa pelaamaan LeffaQuizz-peliä!");
             Console.WriteLine("Kerro ensin nimesi:");
+            Console.ForegroundColor = ConsoleColor.Green;
             playername = Console.ReadLine();
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"Hei {playername}!");
             Console.WriteLine();
             Console.WriteLine("Paina mitä tahansa nappia jatkaaksesi");
@@ -128,7 +133,7 @@ namespace Quizz
 
             try
             {
-                using (StreamReader sr = new StreamReader(@"C:\Users\riaah\OneDrive\Tiedostot\Miniprojekti_Ria_Johanna_Marjaana\questions.txt"))
+                using (StreamReader sr = new StreamReader(@"C:\Users\pirit\Source\Repos\Leftythefish\Miniprojekti_Quizz\questions.txt"))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -200,5 +205,7 @@ namespace Quizz
             SortedQ = temp.Take(10).ToList();
 
         }
+
+
     }
 }
