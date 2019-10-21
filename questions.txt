@@ -1,0 +1,20 @@
+Onko Tim Burton voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI
+Onko James Cameron voittanut Oscar-palkintoa parhaasta ohjauksesta?;kyllä;KYLLÄ, Titanic
+Onko Charles Chaplin voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI
+Onko Francis Ford Coppola voittanut Oscar-palkintoa parhaasta ohjauksesta?;kyllä;KYLLÄ, The Godfather Part II
+Onko David Cronenberg voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI
+Onko Clint Eastwood voittanut Oscar-palkintoa parhaasta ohjauksesta?;kyllä;KYLLÄ, kaksi kertaa: Unforgiven & Million Dollar Baby
+Onko Federico Fellini voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI, ollut neljä kertaa ehdokkaana
+Onko David Fincher voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI, ollut kaksi kertaa ehdokkaana
+Onko Alfred Hitchcock voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI, ollut viisi kertaa ehdokkaana
+Onko John Hughes voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI
+Onko Peter Jackson voittanut Oscar-palkintoa parhaasta ohjauksesta?;kyllä;KYLLÄ, The Lord of the Rings: The Return of the King
+Onko Stanley Kubrick voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI, ollut neljä kertaa ehdokkaana
+Onko Akira Kurosawa voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI, ollut kerran ehdokkaana
+Onko John Landis voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI
+Onko George Lucas voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI, ollut kaksi kertaa ehdokkaana
+Onko Christopher Nolan voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI, ollut kerran ehdokkaana
+Onko Martin Scorsese voittanut Oscar-palkintoa parhaasta ohjauksesta?;kyllä;KYLLÄ, The Departed
+Onko Ridley Scott voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI, ollut kolme kertaa ehdokkaana
+Onko Steven Spielberg voittanut Oscar-palkintoa parhaasta ohjauksesta?;kyllä;KYLLÄ, kaksi kertaa: Schindler's List & Saving Private Ryan
+Onko Quentin Tarantino voittanut Oscar-palkintoa parhaasta ohjauksesta?;ei;EI, ollut kaksi kertaa ehdokkaana
