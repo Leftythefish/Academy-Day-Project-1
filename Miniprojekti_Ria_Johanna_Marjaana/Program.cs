@@ -38,22 +38,22 @@ namespace Quizz
         {
             if (points > 8)
             {
-                Console.WriteLine($"Mahtavaa, {playername}!");
+                Console.WriteLine($"Hurray, oletko {playername} tehnyt muutakin kuin katsonut leffoja?");
                 Console.WriteLine();
-                Console.WriteLine($"Tuloksesi on: {points}/10");
+                Console.WriteLine($"Tuloksesi on huikeat {points}/10");
             }
             else if (points >= 3 && points <= 8)
             {
-                Console.WriteLine($"Hyvin meni {playername}!");
+                Console.WriteLine($"Ihan ok meni, {playername} eksyy välillä leffateatteriin, mutta ei tarpeeksi usein!");
                 Console.WriteLine();
                 Console.WriteLine($"Tuloksesi on: {points}/10");
 
             }
             else if (points < 3)
             {
-                Console.WriteLine($"Paremminkin olis voinut mennä, {playername}.");
+                Console.WriteLine($"Joulupukko tuo sulle {playername} Finnkinon lahjakortteja lahjaksi.");
                 Console.WriteLine();
-                Console.WriteLine($"Tuloksesi on: {points}/10");
+                Console.WriteLine($"Huonosti meni... tuloksesi on {points}/10");
             }
             Console.WriteLine();
             Console.WriteLine("Paina [1] nähdäksesi kaikki vastaukset, tai sulje ohjelma painamalla mitä tahansa muuta...");
@@ -128,7 +128,7 @@ namespace Quizz
 
             try
             {
-                using (StreamReader sr = new StreamReader(@"C:\Users\riaah\OneDrive\Tiedostot\Miniprojekti_Ria_Johanna_Marjaana\questions.txt"))
+                using (StreamReader sr = new StreamReader(@"C:\Users\johan\Source\Repos\Leftythefish\Miniprojekti_Quizz\questions.txt"))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
